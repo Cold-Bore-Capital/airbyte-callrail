@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "buyer_id": {
+      "type": "integer"
+    },
+    "buyer_name": {
+      "type": "string"
+    },
+    "supplier_id": {
+      "type": "integer"
+    },
+    "supplier_short_name": {
+      "type": "string"
+    },
+    "supplier_name": {
+      "type": "string"
+    },
+    "account_id": {
+      "type": "integer"
+    },
+    "account_unique_id": {
+      "type": "string"
+    },
+    "account_name": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    },
+    "unique_id": {
+      "type": "string"
+    },
+    "order_number": {
+      "type": "string"
+    },
+    "po": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "subtotal": {
+      "type": "integer"
+    },
+    "shipping": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "fees": {
+      "type": "integer"
+    },
+    "tax": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "integer"
+    },
+    "last_activity": {
+      "type": "string"
+    },
+    "corporate_location_id": {
+      "type": "string"
+    },
+    "items": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer"
+            },
+            "name": {
+              "type": "string"
+            },
+            "unique_id": {
+              "type": "string"
+            },
+            "sku": {
+              "type": "string"
+            },
+            "unit_price": {
+              "type": "integer"
+            },
+            "quantity": {
+              "type": "number"
+            },
+            "quantity_shipped": {
+              "type": "integer"
+            },
+            "total_price": {
+              "type": "integer"
+            },
+            "status": {
+              "type": "string"
+            },
+            "date": {
+              "type": "string"
+            },
+            "supplier_order_id": {
+              "type": "integer"
+            },
+            "supply_id": {
+              "type": "integer"
+            },
+            "item_id": {
+              "type": "integer"
+            },
+            "primary_category_name": {
+              "type": "string"
+            },
+            "secondary_category_name": {
+              "type": "string"
+            },
+            "manufacturer_name": {
+              "type": "string"
+            },
+            "manufacturer_no": {
+              "type": "integer"
+            },
+            "order_number": {
+              "type": "string"
+            },
+            "units": {
+              "type": "number"
+            },
+            "image": {
+              "type": "string"
+            },
+            "quantity_received": {
+              "type": "integer"
+            },
+            "counts_toward_budget": {
+              "type": "boolean"
+            },
+            "missed_savings": {
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
