@@ -1,8 +1,8 @@
 version: "0.1.0"
 
 definitions:
-  page_size: 100
-  step: "100d"
+  page_size: 250
+  step: "10d"
 
   schema_loader:
     type: JsonSchema
@@ -43,17 +43,17 @@ definitions:
         type: DpathExtractor
         field_pointer: ["{{ options['name'] }}"]
     paginator:
-      type: DefaultPaginator
+      type: "DefaultPaginator"
       pagination_strategy:
-        type: "CursorPagination"
-        cursor_value: "{{ headers['link']['next']['url'] }}"
-        stop_condition: "{{ 'next' not in headers['link'] }}"
-        page_size: 100
+        type: "PageIncrement"
+        page_size: "*ref(definitions.page_size)"
       page_size_option:
-        field_name: "per_page"
         inject_into: "request_parameter"
+        field_name: "per_page"
       page_token_option:
-        inject_into: "path"
+        inject_into: "request_parameter"
+        field_name: "page"
+
     stream_slicer:
       $ref: "*ref(definitions.stream_slicer)"
 
@@ -72,6 +72,8 @@ definitions:
         request_options_provider:
           request_parameters:
             fields: "call_type,company_id,company_name,company_time_zone,created_at,device_type,first_call,formatted_call_type,formatted_customer_location,formatted_business_phone_number,formatted_customer_name,prior_calls,formatted_customer_name_or_phone_number,formatted_customer_phone_number,formatted_duration,formatted_tracking_phone_number,formatted_tracking_source,formatted_value,good_lead_call_id,good_lead_call_time,lead_status,note,source,source_name,tags,total_calls,value,waveforms,tracker_id,speaker_percent,keywords,medium,campaign,referring_url,landing_page_url,last_requested_url,referrer_domain,utm_source,utm_medium,utm_term,utm_content,utm_campaign,utma,utmb,utmc,utmv,utmz,ga,gclid,fbclid,msclkid,milestones,timeline_url,keywords_spotted,call_highlights,agent_email,keypad_entries"
+            sort: "start_time"
+            order: "asc"
 
   conversations_stream:
     $options:
