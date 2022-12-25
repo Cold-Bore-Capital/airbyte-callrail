@@ -21,16 +21,16 @@ definitions:
     type: "DatetimeStreamSlicer"
     start_datetime:
       datetime: "{{ config.start_date }}"
-      datetime_format: "%Y-%m-%dT%H:%M"
+      datetime_format: "%Y-%m-%dT%H:%M:%S.%f%z"
     end_datetime:
-      datetime: "{{ today_utc().strftime('%Y-%m-%dT%H:%M') }}"
-      datetime_format: "%Y-%m-%dT%H:%M"
+      datetime: "{{ today_utc() }}"
+      datetime_format: "%Y-%m-%dT%H:%M:%S.%f%z"
     step: "*ref(definitions.step)"
     cursor_field: "{{ options.stream_cursor_field }}"
     start_time_option:
       field_name: "start_date"
       inject_into: "request_parameter"
-    datetime_format: "%Y-%m-%dT%H:%M:%S"
+    datetime_format: "%Y-%m-%dT%H:%M:%S.%f%z"
 
   retriever:
     type: SimpleRetriever
