@@ -21,10 +21,10 @@ definitions:
     type: "DatetimeStreamSlicer"
     start_datetime:
       datetime: "{{ config.start_date }}"
-      datetime_format: "%Y-%m-%dT%H:%M:%S.%f %Z"
+      datetime_format: "%Y-%m-%dT%H:%M:%S.%f"
     end_datetime:
-      datetime: "{{ today_utc().strftime('%Y-%m-%dT%H:%M:%S.%f %Z') }}"
-      datetime_format: "%Y-%m-%dT%H:%M:%S.%f %Z"
+      datetime: "{{ today_utc().strftime('%Y-%m-%dT%H:%M:%S.%f') }}"
+      datetime_format: "%Y-%m-%dT%H:%M:%S.%f"
     step: "*ref(definitions.step)"
     cursor_field: "{{ options.stream_cursor_field }}"
     start_time_option:
