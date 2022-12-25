@@ -30,7 +30,7 @@ definitions:
     start_time_option:
       field_name: "start_date"
       inject_into: "request_parameter"
-    datetime_format: "%Y-%m-%dT%H:%M:%S.%f-%Z"
+    datetime_format: "%Y-%m-%dT%H:%M:%S.%f%z"
 
   retriever:
     type: SimpleRetriever
