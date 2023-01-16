@@ -23,8 +23,8 @@ definitions:
       datetime: "{{ config.start_date }}"
       datetime_format: "%Y-%m-%dT%H:%M:%S.%f"
     end_datetime:
-      datetime: "{{ today_utc().strftime('%Y-%m-%dT%H:%M:%S.%f') }}"
-      datetime_format: "%Y-%m-%dT%H:%M:%S.%f"
+      datetime: "{{ now_utc() }}"
+      datetime_format: "%Y-%m-%d %H:%M:%S.%f%z"
     step: "*ref(definitions.step)"
     cursor_field: "{{ options.stream_cursor_field }}"
     start_time_option:
@@ -35,7 +35,7 @@ definitions:
   retriever:
     type: SimpleRetriever
     $options:
-      url_base: "https://webhook.site/ba799f1c-da41-4358-9408-0e44b50a336c"
+      url_base: "https://api.callrail.com/v3/a/"
       start_from_page: 1
     name: "{{ options['name'] }}"
     primary_key: "{{ options['primary_key'] }}"
