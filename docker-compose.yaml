@@ -32,7 +32,7 @@ services:
       - airbyte_internal
     depends_on:
       init:
-        condition: service_completed_successfully
+        condition: service_started
   db:
     image: airbyte/db:${VERSION}
     logging: *default-logging
@@ -119,7 +119,7 @@ services:
       - airbyte_internal
     depends_on:
       bootloader:
-        condition: service_completed_successfully
+        condition: service_started
   server:
     image: airbyte/server:${VERSION}
     logging: *default-logging
@@ -164,7 +164,7 @@ services:
       - airbyte_internal
     depends_on:
       bootloader:
-        condition: service_completed_successfully
+        condition: service_started
   webapp:
     image: airbyte/webapp:${VERSION}
     logging: *default-logging
@@ -186,7 +186,7 @@ services:
       - airbyte_internal
     depends_on:
       bootloader:
-        condition: service_completed_successfully
+        condition: service_started
   airbyte-temporal:
     image: airbyte/temporal:${VERSION}
     logging: *default-logging
@@ -228,7 +228,7 @@ services:
       - airbyte_internal
     depends_on:
       bootloader:
-        condition: service_completed_successfully
+        condition: service_started
   airbyte-connector-builder-server:
     image: airbyte/connector-builder-server:${VERSION}
     logging: *default-logging
@@ -242,7 +242,7 @@ services:
       - airbyte_internal
     depends_on:
       bootloader:
-        condition: service_completed_successfully
+        condition: service_started
   airbyte-proxy:
     image: airbyte/proxy:${VERSION}
     container_name: airbyte-proxy

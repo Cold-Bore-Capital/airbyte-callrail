@@ -2,7 +2,9 @@ version: "0.1.0"
 
 definitions:
   page_size: 100
-  step: "10d"
+  # Running locally on Adham's local only works with step: "10d"
+  # ec2 is currently running with step: "P10D"
+  step: "P10D"
 
   schema_loader:
     type: JsonSchema
